@@ -34,9 +34,9 @@ def saveImage(file_name , url):
 def setWallpaper(file_name):
   print ("wallpaper set from "+file_name)
   result = subprocess.run(["gsettings", "set", "org.gnome.desktop.background", "picture-uri" ,"'file://"+file_name+"'"] , stdout=subprocess.PIPE)
+  result = subprocess.run(["gsettings", "set", "org.gnome.desktop.background", "picture-uri-dark" ,"'file://"+file_name+"'"] , stdout=subprocess.PIPE)
   print (result.stdout)
 
-subprocess.call(["notify-send" , "Daily Wallpaper", "fetching image"])
 categories = ['wallpaper/','fluid/']
 category = rdm.choice(categories)
 imageUrl,uniqueID  = fetchImage(APP_ID , URL , category,PAYLOAD)
